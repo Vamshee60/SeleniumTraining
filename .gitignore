@@ -5,9 +5,3 @@ target
 MyProject1/.settings/org.eclipse.m2e.core.prefs
 MyProject1/.classpath
 MyProject1/.settings/org.eclipse.jdt.core.prefs
-MyProject1/src/main/java/vamshee/browsers/stringsplit.java
-MyProject1/src/main/java/vamshee/java/interfaces/abstractclass/MyCalculator4.java
-MyProject1/src/main/java/vamshee/java/interfaces/implementing/Calculator.java
-MyProject1/src/main/java/vamshee/java/interfaces/implementing/MyCalculator1.java
-MyProject1/src/main/java/vamshee/java/interfaces/implementing/MyCalculator2.java
-MyProject1/src/main/java/vamshee/java/interfaces/abstractclass/MyCalculator3.java
