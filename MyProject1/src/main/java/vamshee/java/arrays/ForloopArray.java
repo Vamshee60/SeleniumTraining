@@ -8,4 +8,5 @@ public class ForloopArray {
 	         System.out.print("\n");
 	}
 
-}}
+}
+	}
