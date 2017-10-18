@@ -29,7 +29,7 @@ public void usingForLoopInTryCatch(String input) throws Exception
 		System.out.println("NullPointerException");
 		//throw npe;
 		//throw new MyException();
-		throw new MyException(npe);
+		throw new MyException(npe); pavan added this code
 	}
 }
 	public static void main(String[] args) {
