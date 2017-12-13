@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class IsPalindrome {
 	public static void main(String[] args) {
 	Scanner InputString=new Scanner(System.in);
-	System.out.println("DAD");
+	System.out.println("String example: ");
 	String str=InputString.next();
 	InputString.close();
 	String revString="";
