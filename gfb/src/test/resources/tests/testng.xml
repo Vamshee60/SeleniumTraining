@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-  
-<suite name="Google Flight Test Suite" verbose="1" >
-  <test name="page load tests" >
-    <classes>
-       <class name="gfb.GFBTests" />
-    </classes>
-  </test>
- 
-  
-</suite>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="GFBTest" parallel="tests">
+	<test name="PageLoadTest">
+		<classes>
+			<class name="tests.gfb.GFBPageTest">
+			</class>
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
