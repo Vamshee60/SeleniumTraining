@@ -26,10 +26,10 @@ public class WelcomePage {
 	}
 	/* LOCATORS */
 
-	By byLogo = By.xpath("//img[@src='http://www.phptravels.net/uploads/global/logo.png'and @class='logo']");
+	public By byLogo = By.xpath("//img[@src='http://www.phptravels.net/uploads/global/logo.png'and @class='logo']");
 
-	By byLogin = By.xpath("//div[@class='navbar-collapse collapse']//a[text()=' Login']");
+	public By byLogin = By.xpath("//div[@class='navbar-collapse collapse']//a[text()=' Login']");
 
-	By byMyAccount = By.xpath("//div[@class='navbar-collapse collapse']//li[@id='li_myaccount']/a[@data-toggle='dropdown']");
+	public By byMyAccount = By.xpath("//div[@class='navbar-collapse collapse']//li[@id='li_myaccount']/a[@data-toggle='dropdown']");
 
 }
