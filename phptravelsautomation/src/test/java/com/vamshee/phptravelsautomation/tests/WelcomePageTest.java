@@ -15,8 +15,8 @@ public class WelcomePageTest extends BaseTest {
 
 	@Test
 	public void openWelcomePageInChrome() {
-		//report
-		Reporter report=new Reporter();
+		// report
+		Reporter report = new Reporter();
 		// open Chrome browser
 
 		// Webdriver setup
@@ -28,42 +28,41 @@ public class WelcomePageTest extends BaseTest {
 		WelcomePage welcomePage = new WelcomePage(driver);
 		welcomePage.open();
 		takeScreenShot(driver);
-		
-		//check for logo presence.
-		WebDriverWait wait=new WebDriverWait(driver, 10);
-		try{
+
+		// check for logo presence.
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		try {
 			wait.until(ExpectedConditions.visibilityOfElementLocated(welcomePage.byLogo));
 			report.log("Logo Displayed");
-		}
-		catch(Exception e){
+		} catch (Exception e) {
 			report.log("Logo not Displayed");
 			takeScreenShot(driver);
 		}
-		
-		
-		
-		//check for MyAccount
-		//check for login presence
+
+		// check for MyAccount
+		// check for login presence
 		welcomePage.clickMyAccount();
-		try{
+		try {
 			wait.until(ExpectedConditions.visibilityOfElementLocated(welcomePage.byLogin));
 			report.log("Login Displayed");
-		}
-		catch(Exception e){
+		} catch (Exception e) {
 			report.log("Login not Displayed");
 			takeScreenShot(driver);
+
 		}
-		
+
 		driver.quit();
 	}
-	@Test(enabled=false)
+
+	@Test(enabled = false)
 	public void openWelcomePageInIE() {
-		//report
-		Reporter report=new Reporter();
+		// report
+		Reporter report = new Reporter();
 		// open Chrome browser
 
 		// Webdriver setup
-		System.setProperty("webdriver.ie.driver", "C:\\Users\\Stallone\\Documents\\GitHub\\SeleniumTraining\\phptravelsautomation\\IEDriverServer.exe");
+		System.setProperty("webdriver.ie.driver",
+				"C:\\Users\\Stallone\\Documents\\GitHub\\SeleniumTraining\\phptravelsautomation\\IEDriverServer.exe");
 		WebDriver driver = new InternetExplorerDriver();
 
 		// create page object of welcomePage
@@ -71,25 +70,21 @@ public class WelcomePageTest extends BaseTest {
 		WelcomePage wp = new WelcomePage(driver);
 		wp.open();
 		takeScreenShot(driver);
-		
-		//check for logo presence.
-		WebDriverWait wait=new WebDriverWait(driver, 10);
-		try{
+
+		// check for logo presence.
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		try {
 			wait.until(ExpectedConditions.visibilityOfElementLocated(wp.byLogo));
 			report.log("Logo Displayed");
-		}
-		catch(Exception e){
+		} catch (Exception e) {
 			report.log("Logo not Displayed");
 			takeScreenShot(driver);
 		}
-		
-		
-		
-		//check for MyAccount
-		//check for login presence
-		
+
+		// check for MyAccount
+		// check for login presence
+
 		driver.quit();
 	}
-	
 
 }
