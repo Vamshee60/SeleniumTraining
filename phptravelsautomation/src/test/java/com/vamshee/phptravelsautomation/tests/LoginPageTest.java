@@ -1,19 +1,28 @@
 package com.vamshee.phptravelsautomation.tests;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.vamshee.phptravelsautomation.pageobjects.WelcomePage;
+import org.vamshee.phptravelsautomation.utils.ExcelUtil;
 
 import com.vamshee.phptravelsautomation.tests.util.BaseTest;
 
+import jxl.Sheet;
+import jxl.Workbook;
+
 public class LoginPageTest extends BaseTest {
 
-	@Test
+	@Test(enabled = false)
 	public void openWelcomePageInChrome() throws InterruptedException {
 		// report
 		Reporter report = new Reporter();
@@ -47,6 +56,11 @@ public class LoginPageTest extends BaseTest {
 		takeScreenShot(driver);
 
 		driver.quit();
+	}
+
+	@Test(dataProviderClass = ExcelUtil.class, dataProvider = "loginData")
+	public void testData(String userName, String password, String status) {
+		System.out.println(userName + " " + password + " " + status);
 	}
 
 }
