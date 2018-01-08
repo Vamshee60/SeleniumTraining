@@ -13,9 +13,14 @@ import org.vamshee.phptravelsautomation.utils.ExcelUtil;
 public class LoginPage {
 
 	WebDriver driver;
+	public static final String URL = "http://www.phptravels.net/login";
 
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
+	}
+
+	public void open() {
+		driver.get(URL);
 	}
 
 	public By byEmail = By.xpath("//input[@type='email']"), byPassword = By.xpath("//input[@type='password']"),
@@ -66,6 +71,13 @@ public class LoginPage {
 		}
 
 		return isInvalid;
+	}
+
+	public void login() {
+		enterEmail("user@phptravels.com");
+		enterPassword("demouser");
+		clickLogin();
+
 	}
 
 }
