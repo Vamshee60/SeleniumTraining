@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.vamshee.phptravelsautomation.pageobjects.LoginPage;
 import org.vamshee.phptravelsautomation.pageobjects.WelcomePage;
 import org.vamshee.phptravelsautomation.utils.ExcelUtil;
 
@@ -21,15 +22,20 @@ import jxl.Sheet;
 import jxl.Workbook;
 
 public class LoginPageTest extends BaseTest {
-
-	@Test(enabled = false)
-	public void openWelcomePageInChrome() throws InterruptedException {
+	/**
+	 * enter proper user id and password and assert login successful
+	 * 
+	 * @throws Exception
+	 */
+	@Test(enabled = true, groups = { "positive" })
+	public void testLoginSuccess() throws Exception {
 		// report
 		Reporter report = new Reporter();
 		// open Chrome browser
 
 		// Webdriver setup
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Stallone\\workspace\\Frameworks\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\chromedriver.exe");
+		// "C:\\Users\\Stallone\\workspace\\Frameworks\\chromedriver.exe"
 		WebDriver driver = new ChromeDriver();
 
 		// create page object of welcomePage
@@ -38,27 +44,38 @@ public class LoginPageTest extends BaseTest {
 		welcomePage.open();
 		Thread.sleep(3000);
 		driver.manage().window().maximize();
+
 		// check for logo presence.
 		WebDriverWait wait = new WebDriverWait(driver, 5);
+
 		// check for login presence
 		welcomePage.clickMyAccount();
 		welcomePage.clickLogin();
 		takeScreenShot(driver);
-		driver.findElement(By.xpath("//input[@type='email']")).click();
-		driver.findElement(By.xpath("//input[@type='email']")).sendKeys("user@phptravels.com");
 
-		driver.findElement(By.xpath("//input[@type='password']")).click();
-		driver.findElement(By.xpath("//input[@type='password']")).sendKeys("demouser");
+		// Login Page will be opened
+		// create Login Page Object
+		LoginPage loginPage = new LoginPage(driver);
+		loginPage.enterEmail("user@phptravels.com");
+		loginPage.enterPassword("demouser");
+		loginPage.clickLogin();
 
-		driver.findElement(By.xpath("//button[@class='btn btn-action btn-lg btn-block loginbtn']")).click();
+		// after login details entered, wait for success message
+		// wait until URL is changed to "http://www.phptravels.net/account/"
+		try {
+			wait.until(ExpectedConditions.urlMatches("http://www.phptravels.net/account/"));
+		} catch (Exception e) {
+			takeScreenShot(driver);
+			throw new Exception("After login account page not opened, hence login failed");
+		}
 
-		WebDriverWait wait1 = new WebDriverWait(driver, 2);
+		report.log("Account Page is opened after login, so Login is successful");
 		takeScreenShot(driver);
 
 		driver.quit();
 	}
 
-	@Test(dataProviderClass = ExcelUtil.class, dataProvider = "loginData")
+	@Test(dataProviderClass = ExcelUtil.class, dataProvider = "loginData", enabled = false)
 	public void testData(String userName, String password, String status) {
 		System.out.println(userName + " " + password + " " + status);
 	}

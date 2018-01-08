@@ -9,15 +9,22 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.Reporter;
 
+/**
+ * Class to hold all common methods for all test
+ * 
+ * @author 123mvds@gmail.com
+ *
+ */
 public class BaseTest {
-	
+
 	public void takeScreenShot(WebDriver driver) {
-		takeScreenShot(driver,"");
+		takeScreenShot(driver, "");
 	}
 
 	public void takeScreenShot(WebDriver driver, String msg) {
 		File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		String screenShotPath = "C:/Users/Stallone/Documents/GitHub/SeleniumTraining/phptravelsautomation/screenshots/store" + System.currentTimeMillis() + ".png";
+		String screenShotPath = System.getProperty("user.dir") + "/screenshots/store" + System.currentTimeMillis()
+				+ ".png";
 		try {
 			// now copy the screenshot to desired location using copyFile
 			// //method
@@ -32,6 +39,5 @@ public class BaseTest {
 
 		}
 	}
-
 
 }
