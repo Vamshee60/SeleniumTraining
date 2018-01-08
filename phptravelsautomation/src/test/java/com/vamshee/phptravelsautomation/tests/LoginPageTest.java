@@ -75,6 +75,60 @@ public class LoginPageTest extends BaseTest {
 		driver.quit();
 	}
 
+	/**
+	 * enter improper user id and password and assert login successful
+	 * 
+	 * @throws Exception
+	 */
+	@Test(enabled = true, groups = { "negative" })
+	public void testLoginFailure() throws Exception {
+		// report
+		Reporter report = new Reporter();
+		// open Chrome browser
+
+		// Webdriver setup
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\chromedriver.exe");
+		// "C:\\Users\\Stallone\\workspace\\Frameworks\\chromedriver.exe"
+		WebDriver driver = new ChromeDriver();
+
+		// create page object of welcomePage
+
+		WelcomePage welcomePage = new WelcomePage(driver);
+		welcomePage.open();
+		Thread.sleep(3000);
+		driver.manage().window().maximize();
+
+		// check for logo presence.
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+
+		// check for login presence
+		welcomePage.clickMyAccount();
+		welcomePage.clickLogin();
+		takeScreenShot(driver);
+
+		// Login Page will be opened
+		// create Login Page Object
+		LoginPage loginPage = new LoginPage(driver);
+		loginPage.enterEmail("user@phptravels.com");
+		// enter invalid password
+		loginPage.enterPassword("demouser11");
+		loginPage.clickLogin();
+
+		// after login details entered, wait for success message
+		// wait until URL is changed to "http://www.phptravels.net/account/"
+		if (loginPage.isInvalidLogin(10)) {
+			report.log("Invalid login message obtained");
+
+		} else {
+			takeScreenShot(driver);
+			throw new Exception("Invalid login message not obtained after waitingfor 10 seconds");
+		}
+
+		takeScreenShot(driver);
+
+		driver.quit();
+	}
+
 	@Test(dataProviderClass = ExcelUtil.class, dataProvider = "loginData", enabled = false)
 	public void testData(String userName, String password, String status) {
 		System.out.println(userName + " " + password + " " + status);

@@ -2,6 +2,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="LoginPageTestSuite" parallel="tests">
 	<test name="LogineTest">
+		<groups>
+			<run>
+				<include name="positive" />
+				<include name="negative" />
+			</run>
+		</groups>
 		<classes>
 			<class name="com.vamshee.phptravelsautomation.tests.LoginPageTest">
 			</class>

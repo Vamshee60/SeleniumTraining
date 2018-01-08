@@ -1,0 +1,24 @@
+Automation Design:
+
+Data:
+We are Storing Data in  Excel sheet
+and use jexcelapi to get that data into Java
+
+References:
+http://jexcelapi.sourceforge.net/
+
+Test Cases:
+
+Welcome Page tests:
+Page should open in Google Chrome,IE
+Logo , My Account link and Login link should be Present
+
+
+Validation:
+
+
+
+Reports:
+
+
+CI:

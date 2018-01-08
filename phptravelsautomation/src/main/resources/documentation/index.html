@@ -1,0 +1,85 @@
+<html>
+
+<head>
+    <title>Documentation for PHPTravels web site automation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body bgcolor="#E6E6FA">
+    <div class="pagewrapper">
+        <div class="header">Automation Design
+
+        </div>
+        <div class="section" id="design wrapper">
+            <div id="data provider wrapper">
+                <h1>Data Provider</h1>
+                <p>This section deals about how data is maintained and used for testing</p>
+                <ul>Data an be stored in below places
+                    <li>Text file</li>
+                    <li>Properties file</li>
+                    <li>CSV file</li>
+                    <li>
+                        <span>Excel file (2003 .xls)
+                            <br> There are many APIs for accessing Excel sheets using Java Apache POI
+                            <a href='http://jexcelapi.sourceforge.net/'>JExcel</a>
+                            We are using JExcel use the below maven dependency in "pon.xml" file
+                            <div class="mvn_dependency">
+                                <pre>    
+                                  <code class="xml"> 
+                &lt;!-- https://mvnrepository.com/artifact/net.sourceforge.jexcelapi/jxl -->
+                &lt;dependency&gt;
+                &lt;groupId&gt;net.sourceforge.jexcelapi&lt;/groupId&gt;
+                &lt;artifactId&gt;jxl&lt;/artifactId&gt;
+                &lt;version&gt;2.6.12&lt;/version&gt;
+                &lt;/dependency&gt;
+                                   </code> 
+                                </pre>
+
+                            </div>
+
+                        </span>
+                    </li>
+                    <li>Excel file (2007 .xlsx)</li>
+                </ul>
+
+            </div>
+            <div id="page object wrapper">
+                <p>This section deals about how Page Objects for corresponding web pages are structured in the code </p>
+
+            </div>
+            <div id="tests wrapper">
+                <p>This section deals about Test Classes and Helper classes and test suites</p>
+
+            </div>
+            <div id="reports wrapper"></div>
+            <div id="ci wrapper"></div>
+            <div id="git wrapper"></div>
+
+        </div>
+        <div class="section" id="test case wrapper">
+            <h2> Test Cases </h2>
+            <div id="login paege tests wrapper">
+                <h3> Login Page tests </h3>
+                <ul>
+                    <li>
+                        <em>Login Successful</em> with proerp user id and password
+                    </li>
+                    <li>
+                        <em>Login Failure</em> with improper user id or password</li>
+                </ul>
+
+            </div>
+            <div id="welcome page tests wrapper"></div>
+            <div id="home page tests wrapper"></div>
+            <div id="account tests wrapper"></div>
+            <div id="flow tests wrapper"></div>
+
+
+        </div>
+    </div>
+</body>
+
+
+
+
+</html>
